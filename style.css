@@ -1,0 +1,96 @@
+
+
+
+body {
+    background-color: #1a1a1a;
+  }
+  
+  .component {
+    background-color: #333;
+    height: 260px;
+    width: 180px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .segment {
+    background-color: #666;
+    height: 16px;
+    width: 80px;
+    position: absolute;
+    display: inline-block;
+  }
+  
+  .segment:after {
+    content: '';
+    border-top: 8px transparent solid;
+    border-bottom: 8px transparent solid;
+    border-left: 8px #666 solid;
+    position: absolute;
+    margin-left: 80px;
+  }
+  
+  .segment:before {
+    content: '';
+    border-top: 8px transparent solid;
+    border-bottom: 8px transparent solid;
+    border-right: 8px #666 solid;
+    position: absolute;
+    margin-left: -8px;
+  }
+  .sA {
+    left: 40px;
+    top: 20px;
+  }
+  
+  .sB {
+    transform: rotate(90deg);
+    top: 70px;
+    left: 90px;
+  }
+  
+  .sC {
+    transform: rotate(90deg);
+    top: 170px;
+    left: 90px;
+  }
+  
+  .sD {
+    left: 40px;
+    top: 220px;
+  }
+  
+  .sE {
+    transform: rotate(90deg);
+    top: 170px;
+    left: -10px;
+  }
+  
+  .sF {
+    transform: rotate(90deg);
+    top: 70px;
+    left: -10px;
+  }
+  
+  .sG {
+    top: 120px;
+    left: 40px;
+  }
+
+
+  .segmentWrap {
+    transform: skew(-5deg);
+    margin-left: 20px;
+  }
+  
+.active {
+    background-color: red;
+  }
+  
+  .active:after, .active:before {
+    border-right-color: red;
+    border-left-color: red;
+  }
+  
+  
+  
