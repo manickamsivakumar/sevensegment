@@ -27,7 +27,9 @@
         var numToDisplay = Number(Num.value);
 
         var numbersList = [];
+        console.log(numToDisplay);
         if (!numToDisplay < 10) {
+            alert("sdffd");
             while (numToDisplay > 0) {
                 numbersList.unshift(numToDisplay % 10);
                 numToDisplay = Math.floor(numToDisplay / 10);
