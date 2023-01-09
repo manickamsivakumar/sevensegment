@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7 Segment</title>
-<link href="./style.css" type="text/css" rel="stylesheet" />
+    <link href="./style.css" type="text/css" rel="stylesheet" />
 </head>
+
 <body>
-    <div class="segmentWrap">
-        <div class="segment sA"></div>
-        <div class="segment sB"></div>
-        <div class="segment sC"></div>
-        <div class="segment sD"></div>
-        <div class="segment sE"></div>
-        <div class="segment sF"></div>
-        <div class="segment sG"></div>
-      </div>
+    
+    <div id="wrapper" style="display:flex">
+        <!-- <div class="segmentWrap">
+            <div class="segment sA"></div>
+            <div class="segment sB"></div>
+            <div class="segment sC"></div>
+            <div class="segment sD"></div>
+            <div class="segment sE"></div>
+            <div class="segment sF"></div>
+            <div class="segment sG"></div>
+        </div> -->
+    </div>
+
+    <script>
+        var segmentsleft = { 'A': '40', 'B': '90', 'C': '90', 'D': '40', 'E': '-10', 'F': '-10', 'G': '40' }
+        var numToDisplay = 12049;
+
+        var numbersList = [];
+        if (!numToDisplay < 10) {
+            while (numToDisplay > 0) {gitc
+                numbersList.unshift(numToDisplay % 10);
+                numToDisplay = Math.floor(numToDisplay / 10);
+            }
+        } else {
+            numbersList = [numToDisplay];
+        }
+
+        let letter = { 1: 'BC', 2: 'ABGED', 3: "ABCDG", 4: "FGBC", 5: "AFGCD", 6: "AFGCDE", 7: "ABC", 8: "ABCDEFG", 9: "ABCDFG", 0: "ABCDEF" }
+
+        console.log(numbersList)
+        var segmentschar = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+        var str=``;
+        numbersList.forEach((value, key) => {
+            var segments = letter[value].split("");
+             str += ` <div class="segmentWrap">`;
+            segmentschar.forEach((sval, skey) => {
+                var styleleft=Number(segmentsleft[sval])+(key*160)
+                var active = segments.includes(sval) ? 'active' : '';
+                str += `<div class="segment s${sval} ${active}" style="left:${styleleft}px"></div>`;
+            })
+
+            str += `</div>`;
+            console.log(str);
+            
+
+        })
+        wrapper.innerHTML = str;
+    </script>
 </body>
+
 </html>
