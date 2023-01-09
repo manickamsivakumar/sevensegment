@@ -12,8 +12,8 @@
 <body>
     <div>
         <div class="input-group">
-            <input type="email" class="input" id="Email" name="Email" placeholder="uiverse@verse.io" autocomplete="off">
-            <input class="button--submit" value="Subscribe" type="submit">
+            <input type="email" class="input" id="Num" name="nmu" placeholder="Enter a Number Here.." autocomplete="off">
+            <input class="button--submit" value="Subscribe" type="submit" id="submit">
         </div>
     </div>
     <div id="wrapper" style="display:flex">
@@ -29,12 +29,14 @@
     </div>
 
     <script>
+        submit.addEventListener("click",segmentDisplay);
+        function segmentDisplay(){
         var segmentsleft = { 'A': '40', 'B': '90', 'C': '90', 'D': '40', 'E': '-10', 'F': '-10', 'G': '40' }
-        var numToDisplay = 12049;
+        var numToDisplay = Number(Num.value);
 
         var numbersList = [];
         if (!numToDisplay < 10) {
-            while (numToDisplay > 0) {gitc
+            while (numToDisplay > 0) {
                 numbersList.unshift(numToDisplay % 10);
                 numToDisplay = Math.floor(numToDisplay / 10);
             }
@@ -62,6 +64,7 @@
 
         })
         wrapper.innerHTML = str;
+    }
     </script>
 </body>
 
