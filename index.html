@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seven Segment</title>
+    <title>Seven Segments</title>
     <link href="./style.css" type="text/css" rel="stylesheet" />
 </head>
 
@@ -27,18 +27,21 @@
         var numToDisplay = Number(Num.value);
 
         var numbersList = [];
-        if (!numToDisplay < 10) {
+        
+        if (numToDisplay > 9) {
+        
             while (numToDisplay > 0) {
                 numbersList.unshift(numToDisplay % 10);
                 numToDisplay = Math.floor(numToDisplay / 10);
             }
         } else {
+        
             numbersList = [numToDisplay];
         }
 
         let letter = { 1: 'BC', 2: 'ABGED', 3: "ABCDG", 4: "FGBC", 5: "AFGCD", 6: "AFGCDE", 7: "ABC", 8: "ABCDEFG", 9: "ABCDFG", 0: "ABCDEF" }
 
-        console.log(numbersList)
+     
         var segmentschar = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
         var str=``;
         numbersList.forEach((value, key) => {
@@ -51,9 +54,6 @@
             })
 
             str += `</div>`;
-        //    console.log(str);
-            
-
         })
         wrapper.innerHTML = str;
     }
